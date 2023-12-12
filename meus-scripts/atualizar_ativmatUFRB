@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#===========================================================================
+# Nome     : atualizar-classe
+#            Copyright (c) 2023 Ícaro Vidal Freire 
+#---------------------------------------------------------------------------
+# Descrição: Script para mover e atualizar classes LaTeX2e para diretórios
+#            adequados no MiKTeX
+# Licença  : The MIT License (MIT)
+# Versão   : 0.1.0
+#---------------------------------------------------------------------------
+# Como usar: 
+#===========================================================================
+
+# variáveis 
+DESTINO="/home/icarofreire/.miktex/texmfs/install/tex/latex/ativmatUFRB"
+ORIGEM="/home/icarofreire/repositorios_GitHub/ativmatUFRB/cls/ativmatUFRB.cls"
+
+# função para cópia
+copiar_classe ()
+{
+  cp -u "$ORIGEM" "$DESTINO"
+  miktex-console
+}
+
+# executando a função
+copiar_classe

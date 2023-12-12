@@ -1,0 +1,81 @@
+#!/bin/bash
+
+#===========================================================================
+# Nome     : modelo_ativmatUFRB
+#            Copyright (c) 2023 Ícaro Vidal Freire 
+#---------------------------------------------------------------------------
+# Descrição: Esse script produz um template básico para preenchimento de 
+#            informações necessárias para uso da classe ativmatUFRB. Esta, 
+#            é uma classe (não oficial) em LaTeX2e, voltada para confecção 
+#            de listas de atividades.
+# Licença  : The MIT License (MIT)
+# Versão   : 0.1.0
+#---------------------------------------------------------------------------
+# Como usar: Basta rodar no terminal: modelo_ativmatUFRB
+#===========================================================================
+
+# criando diretórios -----------------------------------------------------
+mkdir -p tex 
+mkdir -p figs 
+
+# estrutura do texto modelo ----------------------------------------------
+estrutura="% arara: lualatex
+% arara: lualatex if found('log', 'undefined references')
+
+%% arara: clean: { extensions: [aux, log, out, pdf] }
+
+% classe do documento ====================================================
+\documentclass{ativmatUFRB}
+
+% informações do título ---------------------------------------------->>
+\tituloDaLista{}
+\prof{Ícaro Vidal Freire}
+\disciplina{}
+\curso{Licenciatura em Matemática}
+\semestre{}
+\numeroDaLista{}
+%---------------------------------------------------------------------<<
+
+% informações de metadados ------------------------------------------->>
+\hypersetup{%
+  pdfcreator  = {LaTeX2e, Neovim, arara},
+  pdftitle    = {},
+  pdfkeywords = {latex, lualatex, tex}
+}
+%---------------------------------------------------------------------<<
+
+% início do documento ====================================================
+\begin{document}
+%--------------------------------------------------------------------->>
+%
+  \titulo
+%
+  \begin{atividade}
+    \topico{Tópico 1} %-----------------------------------------------
+      \input{tex/01_questao.tex}
+      %\input{tex/02_questao.tex}
+      %\input{tex/03_questao.tex}
+      %\input{tex/04_questao.tex}
+      %\input{tex/05_questao.tex}
+      %\input{tex/06_questao.tex}
+      %\input{tex/07_questao.tex}
+      %\input{tex/08_questao.tex}
+      %\input{tex/09_questao.tex}
+      %\input{tex/10_questao.tex}
+  \end{atividade}
+%
+%---------------------------------------------------------------------<<
+\end{document}
+%=========================================================================
+"
+
+# criando o template -----------------------------------------------------
+## cria dez arquivos enumerado diretório tex/ para escrever as questões
+for i in {01..10}; do 
+  echo -e "% Questão ${i} \n\n\questao" >> "tex/${i}_questao.tex"; 
+done
+
+## cria o arquivo main.tex e abre o nvim 
+echo "$estrutura" >> main.tex 
+cp ~/Imagens/.icons/ufrb.jpg ./figs/
+nvim .

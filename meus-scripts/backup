@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#===========================================================================
+# Nome     : backup.sh
+#            Copyright (c) 2022 Ícaro Vidal Freire 
+#---------------------------------------------------------------------------
+# Descrição: Script para backup sincronizado entre minha home e hd_antigo
+# Licença  : The MIT License (MIT)
+# Versão   : 0.1.1
+#---------------------------------------------------------------------------
+# Como usar: Digitar 'backup.sh', no terminal  
+#===========================================================================
+
+# variáveis ----------------------------------------------------------------
+origens=(
+  /home/icarofreire/Documentos
+  /home/icarofreire/Imagens
+  /home/icarofreire/Música
+  /home/icarofreire/ProgramasRFB
+  /home/icarofreire/bin/meus-scripts
+  /home/icarofreire/.fonts
+  /home/icarofreire/repositorios_GitHub
+  /home/icarofreire/projetos_LaTeX
+  /home/icarofreire/projetos_R
+  /home/icarofreire/projetos_lua
+  /home/icarofreire/projetos_python
+  /home/icarofreire/projetos_octave
+  /home/icarofreire/usp.R
+)
+destino=/media/icarofreire/hd_interno/.backup
+
+# comandos para sincronização ----------------------------------------------
+
+rsync -hva --delete "${origens[@]}" $destino

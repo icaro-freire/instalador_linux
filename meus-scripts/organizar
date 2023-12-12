@@ -1,0 +1,124 @@
+#!/bin/bash
+
+#===========================================================================
+# Nome     : organizar
+#            Copyright (c) 2023 Ícaro Vidal Freire 
+#---------------------------------------------------------------------------
+# Descrição: 
+# Licença  : The MIT License (MIT)
+# Versão   : 0.1.0
+#---------------------------------------------------------------------------
+# Como usar: Digitar no terminal << ./organizar >>
+#===========================================================================
+
+# definindo variáveis ou caminhos ==========================================
+# diretório download
+DOWNLOADS=$HOME/Downloads
+
+# extensões dos arquivos 
+EXT_LATEX=(.tex .sty .cls .dtx)
+EXT_DOCS=(.html .md .txt .pdf .dvi .djvu .doc .docx .odf .xls .xlsv .xlsx .ppt .pptx .ppsx .odp .odt .ods .md .json .csv .epub)
+EXT_R=(.r .rmd)
+EXT_MUSICS=(.mp3 .aac .flac .ogg .wma .m4a .aiff .wav .amr)
+EXT_VIDEOS=(.flv .ogv .avi .mp4 .mpg .mpeg .3gp .mkv .ts .webm .vob .wmv)
+EXT_IMGS=(.png .jpeg .gif .jpg .bmp .svg .webp .psd .tiff)
+EXT_ARQUIVOS=(.deb .tar.gz .rar .zip .7z .gz .bz2 .tar .dmg .tgz .xz .iso .cpio)
+
+# diretórios para organização 
+DIR=(latex_files docs_files r_files musics_file videos_files imgs_files arquivos_files)
+#===========================================================================
+
+# criando estruturas para testes e movendo os arquivos =====================
+
+# latex_files ---------------------------------------------------------->>
+# verifica se existem arquivos com as extensões definidas
+for ext in ${EXT_LATEX[@]}; do
+  if ls $DOWNLOADS/*"$ext" >/dev/null 2>&1; then
+    # se existirem, cria o diretório latex_files em Downloads
+    echo "Existem arquivos com a extensão $ext. Foram movidos para ${DIR[0]}"
+    mkdir -p $DOWNLOADS/${DIR[0]}
+    # move os arquivos para o diretório em questão
+    mv $DOWNLOADS/*"$ext" $DOWNLOADS/${DIR[0]} >/dev/null 2>&1
+  fi
+done
+#-----------------------------------------------------------------------<<
+
+# docs_files ----------------------------------------------------------->>
+# verifica se existem arquivos com as extensões definidas
+for ext in ${EXT_DOCS[@]}; do
+  if ls $DOWNLOADS/*"$ext" >/dev/null 2>&1; then
+    # se existirem, cria o diretório docs_files em Downloads
+    echo "Existem arquivos com a extensão $ext. Foram movidos para ${DIR[1]}"
+    mkdir -p $DOWNLOADS/${DIR[1]}
+    # move os arquivos para o diretório em questão
+    mv $DOWNLOADS/*"$ext" $DOWNLOADS/${DIR[1]} >/dev/null 2>&1
+  fi
+done
+#-----------------------------------------------------------------------<<
+
+# r_files -------------------------------------------------------------->>
+# verifica se existem arquivos com as extensões definidas
+for ext in ${EXT_R[@]}; do
+  if ls $DOWNLOADS/*"$ext" >/dev/null 2>&1; then
+    # se existirem, cria o diretório r_files em Downloads
+    echo "Existem arquivos com a extensão $ext. Foram movidos para ${DIR[2]}"
+    mkdir -p $DOWNLOADS/${DIR[2]}
+    # move os arquivos para o diretório em questão
+    mv $DOWNLOADS/*"$ext" $DOWNLOADS/${DIR[2]} >/dev/null 2>&1
+  fi
+done
+#-----------------------------------------------------------------------<<
+
+# musics_files --------------------------------------------------------->>
+# verifica se existem arquivos com as extensões definidas
+for ext in ${EXT_MUSICS[@]}; do
+  if ls $DOWNLOADS/*"$ext" >/dev/null 2>&1; then
+    # se existirem, cria o diretório musics_files em Downloads
+    echo "Existem arquivos com a extensão $ext. Foram movidos para ${DIR[3]}"
+    mkdir -p $DOWNLOADS/${DIR[3]}
+    # move os arquivos para o diretório em questão
+    mv $DOWNLOADS/*"$ext" $DOWNLOADS/${DIR[3]} >/dev/null 2>&1
+  fi
+done
+#-----------------------------------------------------------------------<<
+
+# videos_files --------------------------------------------------------->>
+# verifica se existem arquivos com as extensões definidas
+for ext in ${EXT_VIDEOS[@]}; do
+  if ls $DOWNLOADS/*"$ext" >/dev/null 2>&1; then
+    # se existirem, cria o diretório videos_files em Downloads
+    echo "Existem arquivos com a extensão $ext. Foram movidos para ${DIR[4]}"
+    mkdir -p $DOWNLOADS/${DIR[4]}
+    # move os arquivos para o diretório em questão
+    mv $DOWNLOADS/*"$ext" $DOWNLOADS/${DIR[4]} >/dev/null 2>&1
+  fi
+done
+#-----------------------------------------------------------------------<<
+
+# imgs_files ----------------------------------------------------------->>
+# verifica se existem arquivos com as extensões definidas
+for ext in ${EXT_IMGS[@]}; do
+  if ls $DOWNLOADS/*"$ext" >/dev/null 2>&1; then
+    # se existirem, cria o diretório imgs_files em Downloads
+    echo "Existem arquivos com a extensão $ext. Foram movidos para ${DIR[5]}"
+    mkdir -p $DOWNLOADS/${DIR[5]}
+    # move os arquivos para o diretório em questão
+    mv $DOWNLOADS/*"$ext" $DOWNLOADS/${DIR[5]} >/dev/null 2>&1
+  fi
+done
+#-----------------------------------------------------------------------<<
+
+# arquivos_files ----------------------------------------------------------->>
+# verifica se existem arquivos com as extensões definidas
+for ext in ${EXT_ARQUIVOS[@]}; do
+  if ls $DOWNLOADS/*"$ext" >/dev/null 2>&1; then
+    # se existirem, cria o diretório arquivos_files em Downloads
+    echo "Existem arquivos com a extensão $ext. Foram movidos para ${DIR[6]}"
+    mkdir -p $DOWNLOADS/${DIR[6]}
+    # move os arquivos para o diretório em questão
+    mv $DOWNLOADS/*"$ext" $DOWNLOADS/${DIR[6]} >/dev/null 2>&1
+  fi
+done
+#-----------------------------------------------------------------------<<
+
+echo "##### Diretório Organizado! #####"
