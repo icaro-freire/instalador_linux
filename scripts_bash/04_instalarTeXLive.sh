@@ -19,8 +19,9 @@ instalar_texlive() {
   wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
   zcat < install-tl-unx.tar.gz | tar xf -
   cd install-tl-*
-  perl ./install-tl --no-interaction
-  echo "----- Lembrar de setar o caminho"
+  perl ./install-tl --no-interaction 
+  echo export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH" >> ~/.zshrc
+  echo "----- FIM (texlive)"
 }
 
 instalar_texlive
