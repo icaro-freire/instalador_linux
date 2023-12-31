@@ -43,6 +43,7 @@ PROGRAMAS_APT=(
   telegram-desktop
   python3-pip
   gawk
+  vlc
 )
 #-------------------------------------------------------------------------<<
 
