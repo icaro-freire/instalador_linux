@@ -42,6 +42,7 @@ PROGRAMAS_APT=(
   octave
   telegram-desktop
   python3-pip
+  gawk
 )
 #-------------------------------------------------------------------------<<
 
