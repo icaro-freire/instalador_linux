@@ -30,14 +30,20 @@ PROGRAMAS_APT=(
   r-base
   r-base-dev
   default-jre 
-  default-jdk
-  libfreetype-dev
-  libfontconfig1-dev
-  libpng-dev
-  libtiff5-dev
-  libjpeg-dev
-  libssl-dev
-  libcurl4-openssl-dev
+  default-jdk 
+  libicu-dev 
+  zlib1g-dev 
+  make 
+  libcurl4-openssl-dev 
+  libssl-dev 
+  libfontconfig1-dev 
+  libfreetype6-dev 
+  libfribidi-dev 
+  libharfbuzz-dev 
+  libjpeg-dev 
+  libpng-dev 
+  libtiff-dev 
+  pandoc 
   libxml2-dev
   maxima
   octave
