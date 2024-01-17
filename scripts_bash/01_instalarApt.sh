@@ -31,7 +31,8 @@ PROGRAMAS_APT=(
   r-base-dev
   default-jre 
   default-jdk
-  libfreetype6-dev
+  libfreetype-dev
+  libfontconfig1-dev
   libpng-dev
   libtiff5-dev
   libjpeg-dev
